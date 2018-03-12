@@ -1,5 +1,5 @@
 def shrinkImage(image_file, x, y):
-	import Image
+	from PIL import Image
 	im = Image.open(image_file)
 	size = x, y
 	im.thumbnail(size, Image.ANTIALIAS)
