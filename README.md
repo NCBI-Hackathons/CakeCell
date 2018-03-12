@@ -10,15 +10,13 @@ A Neural Network Approach to Filament Classification
 - Ian Seim
 
 ## Goal
-We have microscopy images of filaments like these:
+We have microscopy images of filaments and stem cells:
 
 <div align="center">
-  <img src="images/filaments.jpg", width="400px">
-</div>
-and also images of stem cells like these:
-<div align="center">
+  <img src="images/filaments.jpg", width="400px"> <n>
   <img src="images/stemcells.jpg", width="400px">
-</div
+</div>
+  
 We'd like to automatically segment these objects with high fidelity.
 
 We're going to try to use <a href="https://github.com/facebookresearch/Detectron">Detectron</a> to do the heavy lifting for us.
