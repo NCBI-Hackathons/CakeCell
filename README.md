@@ -23,7 +23,7 @@ We're going to try to use <a href="https://github.com/facebookresearch/Detectron
 
 
 <div align="center">
-<img src="images/bicycles.jpg", width="400px">
+<img src="images/bicycles.jpg", width="800px">
 </div>
 
 ## To do
