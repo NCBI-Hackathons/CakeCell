@@ -10,17 +10,14 @@ A Neural Network Approach to Filament Classification
 - Ian Seim
 
 ## Goal
-We have microscopy images of filaments and stem cells:
+We'd like to automatically segment microscopy images of filaments and stem cells:
 
 <div align="center">
   <img src="images/filaments.jpg", width="400px"> <n>
   <img src="images/stemcells.jpg", width="400px">
 </div>
-  
-We'd like to automatically segment these objects with high fidelity.
 
-We're going to try to use <a href="https://github.com/facebookresearch/Detectron">Detectron</a> to do the heavy lifting for us.
-
+We're using <a href="https://github.com/facebookresearch/Detectron">Detectron</a>, Facebook AI Research's "software system that implements state-of-the-art object detection algorithms". This method was able to segment even objects that were not originally in the training data set ([Fig. 2 in Learning to Segment Object Candidates](https://arxiv.org/abs/1506.06204)). In the same way, we want to see whether Detectron can segment our images without any microscopy training data.
 
 <div align="center">
 <img src="images/bicycles.jpg", width="800px">
@@ -28,6 +25,14 @@ We're going to try to use <a href="https://github.com/facebookresearch/Detectron
 
 ## To do
 1. Get <a href="https://github.com/facebookresearch/Detectron">Detectron</a> installed and running.
-2. Try it on our dataset 
+2. Try it on our dataset and test images.
+  - Establish required image pre/post-processing steps
+3. Build pipelines
+  - Pre-processing
+  - Segmentation with Detectron
+  - Post-processing
 
-## Citations
+
+## References
+- [Detectron](https://github.com/facebookresearch/detectron). Ross Girshick, Ilija Radosavovic, Georgia Gkioxari, Piotr Dollár and Kaiming He. 2018.
+- [Learning to Segment Object Candidates](https://arxiv.org/abs/1506.06204). Pedro O. Pinheiro, Ronan Collobert, and Piotr Dollár. arXiv, 2015.
