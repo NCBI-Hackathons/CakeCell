@@ -22,6 +22,15 @@ else
     cfg=${wtdir}/cfg_base.yaml
 fi
 
+if [ -f ${PWD}/infer.py ]; then
+    echo "Using local infer script"
+    cp ${PWD}/infer.py ${wtdir}/infer.py
+    inferscript=/mnt2/infer.py
+else
+    echo "Using base infer script"
+    inferscript=tools/infer_simple.py
+fi
+
 
 # create the communications folder
 rm -rf /tmp/docker_mount
@@ -32,18 +41,17 @@ mkdir -p /tmp/docker_mount/images
 cp ${imdir}/* /tmp/docker_mount/images/
 
 
-nvidia-docker run -it -v /tmp/docker_mount:/mnt -v ${wtdir}:/mnt2 detectron python2 tools/infer_simple.py \
+nvidia-docker run -it -v /tmp/docker_mount:/mnt -v ${wtdir}:/mnt2 detectron python2 $inferscript \
     --cfg /mnt2/cfg_base.yaml \
     --output-dir /mnt/detectron-visualizations \
     --image-ext jpg \
     --wts /mnt2/model.pkl \
-    demo
-    #/mnt/images
+    /mnt/images
     
     
 # copy output to permanent folder
 mkdir -p ${PWD}/results
-cp -r /tmp/docker_mount/detectron-visualizations ${PWD}/results
+cp -r /tmp/docker_mount/detectron-visualizations/* ${PWD}/results
 
 # get rid of mount folder
 rm -rf /tmp/docker_mount
