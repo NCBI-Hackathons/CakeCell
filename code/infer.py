@@ -32,6 +32,8 @@ import logging
 import os
 import sys
 import time
+import numpy as np
+import matplotlib.pyplot as plt
 
 from caffe2.python import workspace
 
