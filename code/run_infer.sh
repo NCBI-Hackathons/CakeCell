@@ -2,8 +2,8 @@
 wtdir=/root/weights
 imdir=/root/run_detectron/images
 
-cfgname=cfg_retina.yaml
-wtname=retina_weights.pkl
+cfgname=cfg_base.yaml
+wtname=model.pkl
 
 # set up the default options for python script and configuration yaml
 if [ -f ${wtdir}/${cfgname} ]; then
@@ -22,7 +22,7 @@ inferscript="tools/infer_simple.py"
 # fi
 
 cp /root/filamennts/code/infer0.py ${wtdir}/infer.py
-#inferscript="/mnt2/infer.py"
+inferscript="/mnt2/infer.py"
 #inferscript="tools/infer_simple.py"
 
 # Handle the command line arguments for the input if we want custom stuff
