@@ -23,12 +23,11 @@ To achieve generic segmentation, we're using <a href="https://github.com/faceboo
 <div align="center">
   <img src="workflow/diagram1.png",width="400px">
 </div>
+
 ## Workflow method
-1. For any images with a dimension greater than 800 px, crop them into a set of
-overlapping chunks.
+1. For any images with a dimension greater than 800 px, crop them into a set of overlapping chunks.
 2. Submit the images to Detectron to generate segmentation masks
-3. For any images composed of overlapping chunks, reassemble them. Combine
-segments if at least one pixel in the segment mask is shared between chunks.
+3. For any images composed of overlapping chunks, reassemble them. Combine segments if at least one pixel in the segment mask is shared between chunks.
 
 ## Installation
 
