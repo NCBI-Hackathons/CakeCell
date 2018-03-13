@@ -18,6 +18,9 @@ To achieve generic segmentation, we're using <a href="https://github.com/faceboo
 
 ## Dependencies
 [Detectron](https://github.com/facebookresearch/Detectron) is a software system for object detection.
+As described on their [installation page](https://github.com/facebookresearch/Detectron/blob/master/INSTALL.md)
+  - Requires a NVIDIA GPU, Linux, Python2.
+  - Requires Caffe2, various standard Python packages, and the COCO API.
 
 
 ## Workflow diagram
@@ -74,8 +77,6 @@ Segmentation masks of images.
 ## References
 - [Detectron](https://github.com/facebookresearch/detectron). Ross Girshick, Ilija Radosavovic, Georgia Gkioxari, Piotr Dollár and Kaiming He. 2018.
 - [Learning to Segment Object Candidates](https://arxiv.org/abs/1506.06204). Pedro O. Pinheiro, Ronan Collobert, and Piotr Dollár. arXiv, 2015.
-- [Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks](https://arxiv.org/pdf/1506.01497v3.pdf). Shaoqing Ren, Kaiming He, Ross Girshick, and Jian Sun. arXiv, 2016.
-- [Mask R-CNN](https://arxiv.org/pdf/1703.06870.pdf). Kaiming He, Georgia Gkioxari, Piotr Dollar, Ross Girshick. arXiv, 2018.
 
 ## People
 - [Jay Newby](http://newby.web.unc.edu/), UNC, Chapel Hill, NC, jaynewby@email.unc.edu
