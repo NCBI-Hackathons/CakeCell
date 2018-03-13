@@ -1,5 +1,5 @@
 # create the communications folder
-rm -f /tmp/docker_mount
+rm -rf /tmp/docker_mount
 mkdir /tmp/docker_mount
 mkdir /tmp/docker_mount/images
 
@@ -16,7 +16,7 @@ nvidia-docker run -it -v /tmp/docker_mount:/mnt  detectron python2 tools/infer_s
 
 # copy output to permanent folder
 mkdir -p ${PWD}/results
-cp -r /tmp/docker_mount ${PWD}/results
+cp -r /tmp/docker_mount/* ${PWD}/results
 
 # get rid of mount folder
-rm /tmp/docker_mount
+rm -rf /tmp/docker_mount
