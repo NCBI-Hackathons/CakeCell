@@ -6,7 +6,7 @@ mkdir /tmp/docker_mount/images
 # copy input file to mount
 cp $1 /tmp/docker_mount/images/
 
-nvidia-docker run -it -v $/tmp/docker_mount:/mnt  detectron python2 tools/infer_simple.py \
+nvidia-docker run -it -v /tmp/docker_mount:/mnt  detectron python2 tools/infer_simple.py \
     --cfg configs/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml \
     --output-dir /mnt/detectron-visualizations \
     --image-ext jpg \
