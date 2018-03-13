@@ -37,9 +37,9 @@ As described on their [installation page](https://github.com/facebookresearch/De
 Our installation of Detectron was as follows.
 Using CentOS 7 with NVIDIA GPU...
 1. Install latest NVIDIA driver.
-2. Installed cuda 9.1 on the system
-3. Installed Docker CE (17.12.1)
-4. Installed NVIDIA-Docker 2
+2. Install CUDA 9.1 on the system
+3. Install Docker CE (17.12.1)
+4. Install NVIDIA-Docker 2
 5. Clone the Detectron repo.
 6. Build the Docker file in the Detectron folder
 ```bash
@@ -57,7 +57,7 @@ python2 tools/infer_simple.py
   --wts https://s3-us-west-2.amazonaws.com/detectron/35861858/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml.02_32_51.SgT4y1cO/output/train/coco_2014_train:coco_2014_valminusminival/generalized_rcnn/model_final.pkl
   demo
 ```
-    - This will put the demo output in the docker_mount folder.
+  - This will put the demo output in the docker_mount folder.
 
 ## Usage
 Any image data where...
