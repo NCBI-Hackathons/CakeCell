@@ -10,7 +10,7 @@ else
     wget -O ${wtdir}/cfg_base.yaml https://s3-us-west-2.amazonaws.com/detectron/35861858/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml
 fi
 cfg=${wtdir}/cfg_base.yaml
-inferscript=tools/infer_simple.py
+inferscript="tools/infer_simple.py"
 
 
 # Handle the command line arguments for the input if we want custom stuff
@@ -18,15 +18,17 @@ for i in "$@"
 do
 case $i in
     --python=*)
+    echo "Using custom python"
     CUSTOMPYTHON="${i#*=}"
     cp CUSTOMPYTHON ${wtdir}/infer.py
-    inferscript=/mnt2/infer.py
+    inferscript="/mnt2/infer.py"
     shift # past argument=value
     ;;
     --config=*)
+    echo "Using custom weights"
     CUSTOMCONFIG="${i#*=}"
     cp CUSTOMCONFIG ${wtdir}/cfg.yaml
-    cfg=${wtdir}/cfg.yaml
+    cfg="${wtdir}/cfg.yaml"
     shift # past argument=value
     ;;
     *)
