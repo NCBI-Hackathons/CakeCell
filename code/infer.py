@@ -106,7 +106,7 @@ def plotMasks(img, im_name, output_dir, cls_segms):
         heatmap[idx[0], idx[1]] += 1.0
     fig = plt.figure(1)
     plt.imshow(heatmap)
-    xticks([]); yticks([])
+    plt.xticks([]); plt.yticks([])
     output_name = os.path.basename(im_name) + '.' + ext
     fig.savefig(os.path.join(output_dir, '{}'.format(output_name)), dpi=dpi)
     plt.close('all')
