@@ -3,14 +3,14 @@ A Neural Network Approach to Filament Classification
 
 <b> Hackathon team: Jay Newby (Lead), Ben Walker (Sys Admin), Mike Pablo (Writer),  Sherry Chao, Ian Seim </b>
 
-Identifying objects of interest in microscopy data is a critical task, but it is time-consuming and subject to variability over time and between researchers. We'd like to automatically segment microscopy images in a generic way, using images of filaments and stem cells as two test cases.
+Identifying objects of interest in microscopy data is a critical task, but it is time-consuming and subject to variability over time and between researchers. We'd like to automatically segment microscopy images <i> generically </i>. Our two test image sets are of filaments and stem cells:
 
 <div align="center">
   <img src="images/filaments.jpg", width="400px"> <n>
   <img src="images/stemcells.jpg", width="400px">
 </div>
 
-To achieve generic segmentation, we're using <a href="https://github.com/facebookresearch/Detectron">Detectron</a>, Facebook AI Research's "software system that implements state-of-the-art object detection algorithms". This method was able to segment even objects that were not originally in the training data set ([Fig. 2 in Learning to Segment Object Candidates](https://arxiv.org/abs/1506.06204)). In the same way, we want to see whether Detectron can segment our images without any microscopy training data.
+To perform generic segmentation, we're using <a href="https://github.com/facebookresearch/Detectron">Detectron</a>, Facebook AI Research's "software system that implements state-of-the-art object detection algorithms", including Mask R-CNN. An early form of this approach, DeepMask, was able to segment even objects that were not originally in the training data set (Fig. 2 in [Learning to Segment Object Candidates](https://arxiv.org/abs/1506.06204)). In the same spirit, we want to see whether Detectron can segment biological objects without any microscopy training data.
 
 <div align="center">
 <img src="images/bicycles.jpg", width="800px">
@@ -29,17 +29,21 @@ As described on their [installation page](https://github.com/facebookresearch/De
 </div>
 
 ## Workflow method
-1. For any images with a dimension greater than 800 px, crop them into a set of overlapping chunks.
-2. Submit the images to Detectron to generate segmentation masks
-3. For any images composed of overlapping chunks, reassemble them. Combine segments if at least one pixel in the segment mask is shared between chunks.
+Currently, we are simply submitting individual test images to Detectron.
+
+A proposed future workflow is as follows:
+1. For any images with an oversized dimension, crop into a set of overlapping chunks.
+2. Submit images to Detectron to generate segmentation masks
+3. For any images composed of overlapping chunks, reassemble them.
+  - Combine segments if at least one pixel in the segment mask is shared between chunks.
 
 ## Installation
 Our installation of Detectron was as follows.
-Using CentOS 7 with NVIDIA GPU...
+On a CentOS 7 with an NVIDIA GPU...
 1. Install latest NVIDIA driver.
-2. Install CUDA 9.1 on the system
-3. Install Docker CE (17.12.1)
-4. Install NVIDIA-Docker 2
+2. Install CUDA 9.1 on the system.
+3. Install Docker CE (17.12.1).
+4. Install NVIDIA-Docker 2.
 5. Clone the Detectron repo.
 6. Build the Docker file in the Detectron folder
 ```bash
@@ -59,7 +63,9 @@ python2 tools/infer_simple.py
 ```
   - This will put the demo output in the docker_mount folder.
 
-## Usage
+### Installation notes
+
+## Use cases
 Any image data where...
 - manual segmentation is needed but problematic (time, difficulty, ...), and
 - there are not enough examples to train a classifier directly on the dataset
@@ -70,12 +76,20 @@ So far we have tested .jpg files. Other image formats TBD.
 ## Output
 Segmented images.
 
+Person and dog are labels within the COCO dataset used to train Detectron, and as expected it easily infers the correct segmentation and labels.
 <div align="center">
   <img src="images/guydog2.jpg", width="400px">
   <img src="images/guydog2_labeled.jpg", width="400px">
 </div>
 
+These stem cells are not within the COCO dataset, so we don't expect correct labeling, but we do hope for correct segmentation.
 
+<div align="center">
+  <img src="images/cells1_1.jpg", width="400px">
+  <img src="images/cells1_1_labeled.jpg", width="400px">
+</div>
+
+There's still a lot of work to be done, but a couple of the cells get labeled as clocks!
 
 ## Validation
 
