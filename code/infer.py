@@ -36,6 +36,7 @@ import numpy as np
 import utils.env as envu
 envu.set_up_matplotlib()
 import matplotlib.pyplot as plt
+import pycocotools.mask as mask_util
 
 from caffe2.python import workspace
 
@@ -98,8 +99,10 @@ def plotMasks(img, im_name, output_dir, cls_segms):
     Ny, Nx, _ = img.shape
     heatmap = np.zeros((Ny, Nx))
     segms = [s for slist in cls_segms for s in slist]
-    for mask in segms:
-        idx = np.nonzero(mask)
+    masks = mask_util.decode(segms)
+    _, _, Nmasks = masks.shape
+    for n in np.arange(Nmasks):
+        idx = np.nonzero(masks[..., n])
         heatmap[idx[0], idx[1]] += 1.0
     fig = plt.figure(1)
     plt.imshow(heatmap)
