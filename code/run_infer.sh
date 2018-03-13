@@ -22,4 +22,4 @@ mkdir -p ${PWD}/results
 cp -r /tmp/docker_mount/* ${PWD}/results
 
 # get rid of mount folder
-#rm -rf /tmp/docker_mount
+rm -rf /tmp/docker_mount
