@@ -2,33 +2,44 @@
 wtdir=/root/weights
 imdir=/root/run_detectron/images
 
-if [ -f ${wtdir}/model.pkl ]; then
-    echo "Model exists"
-else
-    echo "Model doesn't exist, downloading"
-    wget -O ${wtdir}/model.pkl https://s3-us-west-2.amazonaws.com/detectron/35861858/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml.02_32_51.SgT4y1cO/output/train/coco_2014_train:coco_2014_valminusminival/generalized_rcnn/model_final.pkl 
-fi
-
-if [ -f ${PWD}/cfg.yaml ]; then
-    echo "Using local config"
-    cp ${PWD}/cfg.yaml ${wtdir}/cfg.yaml
-    cfg=${wtdir}/cfg.yaml
-elif [ -f ${wtdir}/cfg_base.yaml ]; then
+# set up the default options for python script and configuration yaml
+if [ -f ${wtdir}/cfg_base.yaml ]; then
     echo "Base Config exists"
-    cfg=${wtdir}/cfg_base.yaml
 else
     echo "Base Config doesn't exist, downloading"
     wget -O ${wtdir}/cfg_base.yaml https://s3-us-west-2.amazonaws.com/detectron/35861858/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml
-    cfg=${wtdir}/cfg_base.yaml
 fi
+cfg=${wtdir}/cfg_base.yaml
+inferscript=tools/infer_simple.py
 
-if [ -f ${PWD}/infer.py ]; then
-    echo "Using local infer script"
-    cp ${PWD}/infer.py ${wtdir}/infer.py
+
+# Handle the command line arguments for the input if we want custom stuff
+for i in "$@"
+do
+case $i in
+    --python=*)
+    CUSTOMPYTHON="${i#*=}"
+    cp CUSTOMPYTHON ${wtdir}/infer.py
     inferscript=/mnt2/infer.py
+    shift # past argument=value
+    ;;
+    --config=*)
+    CUSTOMCONFIG="${i#*=}"
+    cp CUSTOMCONFIG ${wtdir}/cfg.yaml
+    cfg=${wtdir}/cfg.yaml
+    shift # past argument=value
+    ;;
+    *)
+          # unknown option
+    ;;
+esac
+done
+
+if [ -f ${wtdir}/model.pkl ]; then
+    echo "Weights exist"
 else
-    echo "Using base infer script"
-    inferscript=tools/infer_simple.py
+    echo "Weights don't exist, downloading"
+    wget -O ${wtdir}/model.pkl https://s3-us-west-2.amazonaws.com/detectron/35861858/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml.02_32_51.SgT4y1cO/output/train/coco_2014_train:coco_2014_valminusminival/generalized_rcnn/model_final.pkl 
 fi
 
 
