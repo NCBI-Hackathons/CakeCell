@@ -18,6 +18,10 @@ To achieve generic segmentation, we're using <a href="https://github.com/faceboo
 
 ## Dependencies
 [Detectron](https://github.com/facebookresearch/Detectron) is a software system for object detection.
+As described on their [installation page](https://github.com/facebookresearch/Detectron/blob/master/INSTALL.md)
+  - Requires a NVIDIA GPU, Linux, Python2.
+  - Requires Caffe2, various standard Python packages, and the COCO API.
+
 
 ## Workflow diagram
 <div align="center">
@@ -30,12 +34,41 @@ To achieve generic segmentation, we're using <a href="https://github.com/faceboo
 3. For any images composed of overlapping chunks, reassemble them. Combine segments if at least one pixel in the segment mask is shared between chunks.
 
 ## Installation
+Our installation of Detectron was as follows.
+Using CentOS 7 with NVIDIA GPU...
+1. Install latest NVIDIA driver.
+2. Installed cuda 9.1 on the system
+3. Installed Docker CE (17.12.1)
+4. Installed NVIDIA-Docker 2
+5. Clone the Detectron repo.
+6. Build the Docker file in the Detectron folder
+```bash
+cd docker
+docker build -t detectron .
+```
+7. Run tests
+```bash
+mkdir docker_mount
+nvidia-docker run --rm -it -v ${PWD}/docker_mount:/mnt detectron
+python2 tools/infer_simple.py
+  --cfg  configs/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml \
+  --output-dir /mnt/detectron-visualizations \
+  --image-ext jpg \
+  --wts https://s3-us-west-2.amazonaws.com/detectron/35861858/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml.02_32_51.SgT4y1cO/output/train/coco_2014_train:coco_2014_valminusminival/generalized_rcnn/model_final.pkl
+  demo
+```
+    - This will put the demo output in the docker_mount folder.
 
 ## Usage
+Any image data where...
+- manual segmentation is needed but problematic (time, difficulty, ...), and
+- there are not enough examples to train a classifier directly on the dataset
 
 ## Input format
+So far we have tested .jpg files. Other image formats TBD.
 
 ## Output
+Segmentation masks of images.
 
 ## Validation
 
@@ -44,8 +77,6 @@ To achieve generic segmentation, we're using <a href="https://github.com/faceboo
 ## References
 - [Detectron](https://github.com/facebookresearch/detectron). Ross Girshick, Ilija Radosavovic, Georgia Gkioxari, Piotr Dollár and Kaiming He. 2018.
 - [Learning to Segment Object Candidates](https://arxiv.org/abs/1506.06204). Pedro O. Pinheiro, Ronan Collobert, and Piotr Dollár. arXiv, 2015.
-- [Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks](https://arxiv.org/pdf/1506.01497v3.pdf). Shaoqing Ren, Kaiming He, Ross Girshick, and Jian Sun. arXiv, 2016.
-- [Mask R-CNN](https://arxiv.org/pdf/1703.06870.pdf). Kaiming He, Georgia Gkioxari, Piotr Dollar, Ross Girshick. arXiv, 2018.
 
 ## People
 - [Jay Newby](http://newby.web.unc.edu/), UNC, Chapel Hill, NC, jaynewby@email.unc.edu
