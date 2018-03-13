@@ -33,6 +33,8 @@ import os
 import sys
 import time
 import numpy as np
+import utils.env as envu
+envu.set_up_matplotlib()
 import matplotlib.pyplot as plt
 
 from caffe2.python import workspace
