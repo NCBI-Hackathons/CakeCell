@@ -2,8 +2,11 @@
 wtdir=/root/weights
 imdir=/root/run_detectron/images
 
+cfgname=cfg_retina.yaml
+wtname=retina_weights.pkl
+
 # set up the default options for python script and configuration yaml
-if [ -f ${wtdir}/cfg_base.yaml ]; then
+if [ -f ${wtdir}/${cfgname} ]; then
     echo "Base Config exists"
 else
     echo "Base Config doesn't exist, downloading"
@@ -19,8 +22,8 @@ inferscript="tools/infer_simple.py"
 # fi
 
 cp /root/filamennts/code/infer.py ${wtdir}/infer.py
-inferscript="/mnt2/infer.py"
-
+#inferscript="/mnt2/infer.py"
+inferscript="tools/infer_simple.py"
 
 # Handle the command line arguments for the input if we want custom stuff
 # for i in "$@"
@@ -47,7 +50,7 @@ inferscript="/mnt2/infer.py"
 # esac
 # done
 
-if [ -f ${wtdir}/model.pkl ]; then
+if [ -f ${wtdir}/$wtname ]; then
     echo "Weights exist"
 else
     echo "Weights don't exist, downloading"
@@ -65,10 +68,10 @@ cp ${imdir}/* /tmp/docker_mount/images/
 
 
 nvidia-docker run -it -v /tmp/docker_mount:/mnt -v ${wtdir}:/mnt2 detectron python2 $inferscript \
-    --cfg /mnt2/cfg_base.yaml \
+    --cfg /mnt2/${cfgname} \
     --output-dir /mnt/detectron-visualizations \
     --image-ext jpg \
-    --wts /mnt2/model.pkl \
+    --wts /mnt2/${wtname} \
     /mnt/images
     
     
