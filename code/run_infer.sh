@@ -1,7 +1,7 @@
 # create the communications folder
 rm -rf /tmp/docker_mount
-mkdir /tmp/docker_mount
-mkdir /tmp/docker_mount/images
+mkdir -p /tmp/docker_mount
+mkdir -p /tmp/docker_mount/images
 
 # copy input file to mount
 cp $1 /tmp/docker_mount/images/
@@ -19,4 +19,4 @@ mkdir -p ${PWD}/results
 cp -r /tmp/docker_mount/* ${PWD}/results
 
 # get rid of mount folder
-rm -rf /tmp/docker_mount
+#rm -rf /tmp/docker_mount
