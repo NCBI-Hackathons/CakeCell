@@ -12,30 +12,37 @@ fi
 cfg=${wtdir}/cfg_base.yaml
 inferscript="tools/infer_simple.py"
 
+if [ -f ${PWD}/infer.py ]; then
+    echo "Using custom python"
+    cp ${PWD}/infer.py ${wtdir}/infer.py
+    inferscript="/mnt2/infer.py"
+fi
+
 
 # Handle the command line arguments for the input if we want custom stuff
-for i in "$@"
-do
-case $i in
-    --python=*)
-    echo "Using custom python"
-    CUSTOMPYTHON="${i#*=}"
-    cp CUSTOMPYTHON ${wtdir}/infer.py
-    inferscript="/mnt2/infer.py"
-    shift # past argument=value
-    ;;
-    --config=*)
-    echo "Using custom weights"
-    CUSTOMCONFIG="${i#*=}"
-    cp CUSTOMCONFIG ${wtdir}/cfg.yaml
-    cfg="${wtdir}/cfg.yaml"
-    shift # past argument=value
-    ;;
-    *)
-          # unknown option
-    ;;
-esac
-done
+# for i in "$@"
+# do
+# echo $i
+# case $i in
+#     --python=*)
+#     echo "Using custom python"
+#     CUSTOMPYTHON="${i#*=}"
+#     cp CUSTOMPYTHON ${wtdir}/infer.py
+#     inferscript="/mnt2/infer.py"
+#     shift # past argument=value
+#     ;;
+#     --config=*)
+#     echo "Using custom weights"
+#     CUSTOMCONFIG="${i#*=}"
+#     cp CUSTOMCONFIG ${wtdir}/cfg.yaml
+#     cfg="${wtdir}/cfg.yaml"
+#     shift # past argument=value
+#     ;;
+#     *)
+#           # unknown option
+#     ;;
+# esac
+# done
 
 if [ -f ${wtdir}/model.pkl ]; then
     echo "Weights exist"
