@@ -12,11 +12,14 @@ fi
 cfg=${wtdir}/cfg_base.yaml
 inferscript="tools/infer_simple.py"
 
-if [ -f ${PWD}/infer.py ]; then
-    echo "Using custom python"
-    cp ${PWD}/infer.py ${wtdir}/infer.py
-    inferscript="/mnt2/infer.py"
-fi
+# if [ -f ${PWD}/infer.py ]; then
+#     echo "Using custom python"
+#     cp ${PWD}/infer.py ${wtdir}/infer.py
+#     inferscript="/mnt2/infer.py"
+# fi
+
+cp /root/filamennts/code/infer.py ${wtdir}/infer.py
+inferscript="/mnt2/infer.py"
 
 
 # Handle the command line arguments for the input if we want custom stuff
