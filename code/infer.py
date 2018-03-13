@@ -98,7 +98,7 @@ def plotMasks(img, im_name, output_dir, cls_segms):
     Ny, Nx, _ = img.shape
     heatmap = np.zeros((Ny, Nx))
     segms = [s for slist in cls_segms for s in slist]
-    for mask in sgms:
+    for mask in segms:
         idx = np.nonzero(mask)
         heatmap[idx[0], idx[1]] += 1.0
     fig = plt.figure(1)
