@@ -6,8 +6,8 @@ mkdir -p /tmp/docker_mount/images
 # copy input file to mount
 cp $1 /tmp/docker_mount/images/
 
-cfg=https://s3-us-west-2.amazonaws.com/detectron/35859745/12_2017_baselines/e2e_mask_rcnn_X-101-64x4d-FPN_2x.yaml
-wts=https://s3-us-west-2.amazonaws.com/detectron/35859745/12_2017_baselines/e2e_mask_rcnn_X-101-64x4d-FPN_2x.yaml.02_00_30.ESWbND2w/output/train/coco_2014_train:coco_2014_valminusminival/generalized_rcnn/model_final.pkl
+cfg="https://s3-us-west-2.amazonaws.com/detectron/35859745/12_2017_baselines/e2e_mask_rcnn_X-101-64x4d-FPN_2x.yaml"
+wts="https://s3-us-west-2.amazonaws.com/detectron/35859745/12_2017_baselines/e2e_mask_rcnn_X-101-64x4d-FPN_2x.yaml.02_00_30.ESWbND2w/output/train/coco_2014_train:coco_2014_valminusminival/generalized_rcnn/model_final.pkl"
 
 nvidia-docker run -it -v /tmp/docker_mount:/mnt  detectron python2 tools/infer_simple.py \
     --cfg $cfg \
