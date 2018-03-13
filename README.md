@@ -68,7 +68,14 @@ Any image data where...
 So far we have tested .jpg files. Other image formats TBD.
 
 ## Output
-Segmentation masks of images.
+Segmented images.
+
+<div align="center">
+  <img src="images/guydog2.jpg", width="400px">
+  <img src="images/guydog2_labeled.jpg", width="400px">
+</div>
+
+
 
 ## Validation
 
