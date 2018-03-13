@@ -1,7 +1,7 @@
 # filamennts
 A Neural Network Approach to Filament Classification
 
-<b> Hackathon team: Jay Newby (Lead), Kevin Currin (Sys Admin), Mike Pablo (Writer),  Sherry Chao, Ben Walker, Ian Seim </b>
+<b> Hackathon team: Jay Newby (Lead), Ben Walker (Sys Admin), Mike Pablo (Writer),  Sherry Chao, Ian Seim </b>
 
 Identifying objects of interest in microscopy data is a critical task, but it is time-consuming and subject to variability over time and between researchers. We'd like to automatically segment microscopy images in a generic way, using images of filaments and stem cells as two test cases.
 
@@ -20,8 +20,15 @@ To achieve generic segmentation, we're using <a href="https://github.com/faceboo
 [Detectron](https://github.com/facebookresearch/Detectron) is a software system for object detection.
 
 ## Workflow diagram
-
+<div align="center">
+  <img src="workflow/diagram1.png",width="400px">
+</div>
 ## Workflow method
+1. For any images with a dimension greater than 800 px, crop them into a set of
+overlapping chunks.
+2. Submit the images to Detectron to generate segmentation masks
+3. For any images composed of overlapping chunks, reassemble them. Combine
+segments if at least one pixel in the segment mask is shared between chunks.
 
 ## Installation
 
@@ -41,8 +48,7 @@ To achieve generic segmentation, we're using <a href="https://github.com/faceboo
 
 ## People
 - [Jay Newby](http://newby.web.unc.edu/), UNC, Chapel Hill, NC, jaynewby@email.unc.edu
-- [Kevin Currin](), UNC, Chapel Hill, NC, kwcurrin@email.unc.edu
+- [Ben Walker](https://github.com/bwalker1), UNC, Chapel Hill, NC, walkeb6@live.unc.edu
 - [Mike Pablo](http://github.com/mikepab), UNC, Chapel Hill, NC, mikepab@live.unc.edu
 - [Sherry Chao](), UNC, Chapel Hill, NC, hchao@email.unc.edu
-- [Ben Walker](https://github.com/bwalker1), UNC, Chapel Hill, NC, walkeb6@live.unc.edu
 - [Ian Seim](https://github.com/iseim), UNC, Chapel Hill, NC, iseim@live.unc.edu
