@@ -96,6 +96,9 @@ def parse_args():
 
 
 def plotMasks(img, im_name, output_dir, cls_segms):
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
     Ny, Nx, _ = img.shape
     heatmap = np.zeros((Ny, Nx))
     segms = [s for slist in cls_segms for s in slist]
