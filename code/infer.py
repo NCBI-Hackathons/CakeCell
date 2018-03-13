@@ -90,6 +90,22 @@ def parse_args():
     return parser.parse_args()
 
 
+def plotMasks(img, im_name, output_dir, cls_segms):
+    Ny, Nx, _ = img.shape
+    heatmap = np.zeros((Ny, Nx))
+    segms = [s for slist in cls_segms for s in slist]
+    for mask in sgms:
+        idx = np.nonzero(mask)
+        heatmap[idx[0], idx[1]] += 1.0
+    fig = plt.figure(1)
+    plt.imshow(heatmap)
+    xticks([]); yticks([])
+    output_name = os.path.basename(im_name) + '.' + ext
+    fig.savefig(os.path.join(output_dir, '{}'.format(output_name)), dpi=dpi)
+    plt.close('all')
+
+
+
 def main(args):
     logger = logging.getLogger(__name__)
     merge_cfg_from_file(args.cfg)
@@ -125,19 +141,11 @@ def main(args):
                 'rest (caches and auto-tuning need to warm up)'
             )
 
-        vis_utils.vis_one_image(
-            im[:, :, ::-1],  # BGR -> RGB for visualization
-            im_name,
-            args.output_dir,
-            cls_boxes,
-            cls_segms,
-            cls_keyps,
-            dataset=dummy_coco_dataset,
-            box_alpha=0.3,
-            show_class=True,
-            thresh=0.7,
-            kp_thresh=2
-        )
+
+
+        plotMasks(im[:, :, ::-1], im_name, args.output_dir, cls_segms)
+
+
 
 
 if __name__ == '__main__':
