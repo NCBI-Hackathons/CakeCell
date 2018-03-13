@@ -156,7 +156,7 @@ def main(args):
         plotMasks(im[:, :, ::-1], im_name, args.output_dir, cls_segms)
 
 
-        print cls_boxes
+        print(cls_boxes)
 
 
 
