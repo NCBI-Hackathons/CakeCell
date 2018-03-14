@@ -1,9 +1,17 @@
-# filamennts
-A Neural Network Approach to Filament Classification
+# CakeCell
+Segmenting cells (and other objects!) in microscopy images via neural networks.
 
 <b> Hackathon team: Jay Newby (Lead), Ben Walker (Sys Admin), Mike Pablo (Writer),  Sherry Chao, Ian Seim </b>
 
-Identifying objects of interest in microscopy data is a critical task, but it is time-consuming and subject to variability over time and between researchers. We'd like to automatically segment microscopy images <i> generically</i>. Our two test image sets are of filaments and stem cells:
+
+## The Idea
+Identifying objects of interest in microscopy data is a critical task, but it is time-consuming and subject to variability over time and between researchers. We'd like to automatically segment microscopy images <i> generically</i>.
+
+## Why CakeCell?
+One of our earliest attempts at segmenting microscopy images <i> without training on microscopy images with labeled cells </i> produced some cell-like segmentations (a couple of cells were labeled as clocks), and some hilariously bad segmentations (much of the field of view was labeled as a cake!).
+
+## Design and testing
+Our two test image sets are of filaments and stem cells:
 
 <div align="center">
   <img src="images/filaments.jpg", width="400px"> <n>
@@ -22,7 +30,6 @@ To perform generic segmentation, we're using <a href="https://github.com/faceboo
 As described on their [installation page](https://github.com/facebookresearch/Detectron/blob/master/INSTALL.md)
   - Requires a NVIDIA GPU, Linux, Python2.
   - Requires Caffe2, various standard Python packages, and the COCO API.
-
 
 ## Workflow diagram
 <div align="center">
