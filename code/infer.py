@@ -17,6 +17,10 @@
 
 """Perform inference on a single image or all images with a certain extension
 (e.g., .jpg) in a folder.
+
+EDITED THIS FILE TO OUTPUT ALL MASKS IN ALL BOUNDING BOXES AS A HEATMAP. (plotMasks function)
+THIS IS IN PLACE OF THE USUAL VISUALIZATION THAT ONLY USES MASKS CORRESPONDING
+TO THE CLASS WITH THE HIGHEST SCORE IN EACH BOUNDING BOX.
 """
 
 from __future__ import absolute_import

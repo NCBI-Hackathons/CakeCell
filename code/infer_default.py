@@ -17,6 +17,8 @@
 
 """Perform inference on a single image or all images with a certain extension
 (e.g., .jpg) in a folder.
+
+THIS IS THE DEFAULT SCRIPT USED BY DETECTRON (originally called "infer_simple.py")
 """
 
 from __future__ import absolute_import
