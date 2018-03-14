@@ -48,6 +48,7 @@ import utils.logging
 import utils.vis as vis_utils
 
 import numpy as np
+import utils.keypoints as keypoint_utils
 
 c2_utils.import_detectron_ops()
 # OpenCL may be enabled by default in OpenCV3; disable it because it's not
