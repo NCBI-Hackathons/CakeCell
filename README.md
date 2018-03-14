@@ -117,9 +117,9 @@ There's still a lot of work to be done, but a couple of the cells get reasonably
 Currently, we're learning what seems to work and what doesn't just by looking at the Detectron's analysis of our test images. Defining validation metrics will be important moving forward (e.g. annotated microscopy image sets).
 
 ## Future
-1. Migrating to a Google server
-2. Exploring internal features of Detectron (rather than the final segmentation output) as alternatives for segmenting objects generically.
-3. "Tricking" Detectron into segmenting our objects by choosing appropriate color lookup tables.
+1. Exploring internal features of Detectron (rather than the final segmentation output) as alternatives for segmenting objects generically.
+2. "Tricking" Detectron into segmenting our objects by choosing appropriate color lookup tables.
+3. Building a training dataset in the COCO format containing cells, filaments, particles, etc from microscopy images.
 
 ## FAQ
 Q: I'm having trouble installing.
