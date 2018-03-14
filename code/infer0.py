@@ -192,9 +192,8 @@ def vis_one_image_area(
     # Display in largest to smallest order to reduce occlusion
     areas = (boxes[:, 2] - boxes[:, 0]) * (boxes[:, 3] - boxes[:, 1])
     #filter out large areas
-    ind = areas < (im.shape[0] * im.shape[1]) / 10
-    areas2 = areas[ind]
-    sorted_inds = np.argsort(-areas2)
+    ind = areas.sort < (im.shape[0] * im.shape[1]) / 10
+    sorted_inds = np.argsort(-areas)[ind]
 
 
     mask_color_id = 0
