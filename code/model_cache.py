@@ -5,6 +5,7 @@ import argparse
 import sqlite3
 #import wget
 import subprocess
+import glob
 
 def create_db():
     conn = sqlite3.connect("models.db")
