@@ -1,3 +1,4 @@
+mkdir docker_mount
 nvidia-docker run -it -v ${PWD}/docker_mount:/mnt  detectron python2 tools/infer_simple.py \
     --cfg configs/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml \
     --output-dir /mnt/detectron-visualizations \

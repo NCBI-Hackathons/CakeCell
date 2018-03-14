@@ -82,14 +82,13 @@ then
 
 
         # TODO: Set up our wrapper stuff to make it more convenient to run
-
-        # Set up stuff to run
-
-        echo "Starting docker"
-        systemctl start docker
-    
-        touch /installation_complete.txt
         
+        # Create shared folder for cache
+        mkdir /shared_cache
+        chmod 777 /shared_cache
+    
         rm -rf /install
+        
+        touch /installation_complete.txt
     fi
 fi
