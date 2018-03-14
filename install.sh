@@ -10,7 +10,7 @@ if [ ! -e /install ]
 then
     # begin and install drivers
     mkdir /install
-    cd install
+    cd /install
 
     # do we need to update anything?
     yum update
