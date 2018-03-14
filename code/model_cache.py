@@ -32,12 +32,7 @@ def read_urls(name):
     return row[1:3]
     
 def check_cached(name):
-    conn = sqlite3.connect("models.db")
-    db = conn.cursor()
-    db.execute("SELECT cached FROM models WHERE name=?",(name,))
-    (result,)=db.fetchone()
-    conn.close()
-    return result
+    return len(glob.glob("/shared_cache/"+name+".pkl"))>0
 
     
 # TODO: implement this
