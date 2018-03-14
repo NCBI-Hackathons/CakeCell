@@ -18,7 +18,8 @@
 """Perform inference on a single image or all images with a certain extension
 (e.g., .jpg) in a folder.
 
-EDITED SO THAT THE PROBABILITY THRESHOLD IS 0. PLOTS ALL INFERENCES.
+EDITED SO THAT THE PROBABILITY THRESHOLD IS 0 AND IMPLEMENTS AN AREA FILTER.
+ONLY BOXES WITH AREA LESS THAN 10PCT OF THE TOTAL AREA OF THE IMAGE ARE PLOTTED.
 """
 
 from __future__ import absolute_import
