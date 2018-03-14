@@ -87,13 +87,13 @@ So far we have tested .jpg files. Other image formats TBD.
 Person and dog are _labels_ within the COCO dataset used to train Detectron. As expected it easily infers the correct segmentation and labels.
 <div align="center">
   <img src="images/guydog2.jpg", width="400px">
-  <img src="images/guydog2_labeled.jpg", width="400px">
+  <img src="images/results/jpg_ver/guydog2_labeled.jpg", width="400px">
 </div>
 
 Tardigrades are no problem:
 <div align="center">
   <img src="images/Tardigrade false colour.jpg", width="400px">
-  <img src="images/results/Tardigrade false colour.jpg-1.png", width="400px">
+  <img src="images/results/jpg_ver/Tardigrade false colour_labeled.jpg", width="400px">
   </object>
 </div>
 
@@ -101,21 +101,21 @@ These stem cells are difficult...
 
 <div align="center">
   <img src="images/cells1_1.png", width="400px">
-  <img src="images/cells1_1_labeled.jpg", width="400px">
+  <img src="images/results/jpg_ver/cells1_1_labeled.jpg", width="400px">
 </div>
 
 We thought, maybe we can make the cells look like fruit? After changing the lookup table for the image, we did much better:
 
 <div align="center">
   <img src="images/cells1_1_orange.jpg", width="400px">
-  <img src="images/cells1_1_orange_labeled.jpg", width="400px">
+  <img src="images/results/jpg_ver/cells1_1_orange_labeled.jpg", width="400px">
 </div>
 
 Detectron does really well at segmenting individual (real) oranges:
 
 <div align="center">
   <img src="images/oranges_fruit_only.jpg", width="400px">
-  <img src="images/results/thresh0-5/oranges_fruit_only_labeled.jpg", width="400px">
+  <img src="images/results/jpg_ver/oranges_fruit_only_labeled.jpg", width="400px">
 </div>
 
 So we thought, what if we make our cells look even <i> more </i> like oranges?
@@ -123,7 +123,7 @@ We tried out one of the image transformations available in [Prisma](https://pris
 
 <div align="center">
   <img src="images/cells1_1_orange_Carribean.jpg", width="400px">
-  <img src="images/results/cells1_1_orange_Carribean_labeled.jpg", width="400px">
+  <img src="images/results/jpg_ver/cells1_1_orange_Carribean_labeled.jpg", width="400px">
 </div>
 
 ## Validation
