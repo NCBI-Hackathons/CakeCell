@@ -141,7 +141,7 @@ A: Our experience in getting Detectron running is documented [here](centos_insta
 
 Q: Shouldn't you actually train your system to recognize cells instead?
 
-A: We're definitely excited about taking this approach, but our initial idea was to see whether Detectron would be able to identify cells without additional training, in the same way [DeepMask](https://arxiv.org/pdf/1506.06204.pdf) could identify monkeys without prior training. Having found this to not work on our first try, we're interested in seeing whether we can 'trick' Detectron into recognizing specific structures by pseudocoloring images (i.e. using a LUT).
+A: We're definitely excited about taking this approach, but our initial idea was to see whether Detectron would be able to identify cells without additional training, in the same way [DeepMask](https://arxiv.org/pdf/1506.06204.pdf) could identify monkeys without prior training. Although direct segmentation of grayscale images was entirely unsuccessful, we've gotten promising results by trying to 'trick' Detectron into recognizing specific structures by pseudocoloring images (i.e. using a LUT).
 
 ## References
 - [Detectron](https://github.com/facebookresearch/detectron). Ross Girshick, Ilija Radosavovic, Georgia Gkioxari, Piotr Dollár and Kaiming He. 2018.
