@@ -15,8 +15,7 @@ Our two test image sets are of filaments and stem cells:
 
 <div align="center">
   <img src="images/filaments.jpg", width="400px"> <n>
-  <img src="images/stemcells.jp
-  g", width="400px">
+  <img src="images/stemcells.jpg", width="400px">
 </div>
 
 To perform generic segmentation, we're using <a href="https://github.com/facebookresearch/Detectron">Detectron</a>, Facebook AI Research's "software system that implements state-of-the-art object detection algorithms", including Mask R-CNN. An early form of this approach, DeepMask, was able to segment even objects that were not originally in the training data set (Fig. 2 in [Learning to Segment Object Candidates](https://arxiv.org/abs/1506.06204)). In the same spirit, we want to see whether Detectron can segment biological objects without any microscopy training data.
