@@ -149,6 +149,11 @@ def kp_connections(keypoints):
     ]
     return kp_lines
 
+def get_class_string(class_index, score, dataset):
+    class_text = dataset.classes[class_index] if dataset is not None else \
+        'id{:d}'.format(class_index)
+    return class_text + ' {:0.2f}'.format(score).lstrip('0')
+
 
 
 def vis_one_image_area(
