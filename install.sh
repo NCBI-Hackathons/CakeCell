@@ -14,8 +14,8 @@ then
 
     # do we need to update anything?
     yum update
-    yum install git
-    yum install wget
+    yum install -y git
+    yum install -y wget
 
 
 
