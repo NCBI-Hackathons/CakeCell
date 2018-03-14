@@ -114,7 +114,7 @@ We thought, maybe we can make the cells look like fruit? After changing the look
 Detectron does really well at segmenting individual (real) oranges:
 
 <div align="center">
-  <img src="images/try_to_run/oranges_fruit_only.jpg", width="400px">
+  <img src="images/oranges_fruit_only.jpg", width="400px">
   <img src="images/results/thresh0-5/oranges_fruit_only_labeled.jpg", width="400px">
 </div>
 
