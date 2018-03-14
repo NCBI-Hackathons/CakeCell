@@ -81,7 +81,10 @@ then
         docker build -t detectron .
 
 
-        # TODO: Set up our wrapper stuff to make it more convenient to run
+        # Set up our wrapper stuff to make it more convenient to run
+        yum install python-pip
+        pip install --upgrade pip
+        pip install wget
         
         # Create shared folder for cache
         mkdir /shared_cache
