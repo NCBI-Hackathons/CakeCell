@@ -93,7 +93,7 @@ Person and dog are _labels_ within the COCO dataset used to train Detectron. As 
 Tardigrades are no problem:
 <div align="center">
   <img src="images/web_images/Tardigrade false colour.jpg", width="400px">
-  <object data="https://github.com/NCBI-Hackathons/CakeCell/blob/master/images/results/Tardigrade%20false%20colour.jpg.pdf", type="application/pdf", width="400px">
+  <img src="images/results/Tardigrade false colour.jpg-1.png", width="400px">
   </object>
 </div>
 
