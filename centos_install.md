@@ -5,7 +5,10 @@ _See also_ [install.sh](install.sh).
 
 0. Root access
 1. Possible `yum update`
-2. Create /cakecell/ folder for everything
+2. Clone Cakecell repo
+    ```bash
+    git clone https://github.com/NCBI-Hackathons/CakeCell.git /cakecell
+    ```
 3. Clone detectron repo at https://github.com/facebookresearch/Detectron.git
 4. Install latest driver
 
