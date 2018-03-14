@@ -111,15 +111,16 @@ But interestingly, if we just change the lookup table for the colors, we can do 
   <img src="images/cells1_1_orange_labeled.jpg", width="400px">
 </div>
 
-There's still a lot of work to be done, but a couple of the cells get reasonably segmented, despite being labeled as clocks!
+There's still a lot of work to be done, but several of the cells get reasonably segmented, despite being labeled as oranges!
 
 ## Validation
-Currently, we're learning what seems to work and what doesn't just by looking at the Detectron's analysis of our test images. Of course, more robust validation metrics will be important moving forward (e.g. annotated microscopy image sets).
+Currently, we're learning what seems to work and what doesn't just by looking at the Detectron's analysis of our test images. Of course, more robust validation metrics will be important moving forward (e.g. annotated microscopy image training sets).
 
 ## Future
-1. Migrating to an Amazon Web Server
+1. Migrating to Google Cloud
 2. Exploring internal features of Detectron (rather than the final segmentation output) as alternatives for segmenting objects generically.
 3. "Tricking" Detectron into segmenting our objects by choosing appropriate color lookup tables.
+4. Retraining the network with microscopy images.
 
 ## FAQ
 Q: I'm having trouble installing.
@@ -131,6 +132,7 @@ A: We're definitely excited about taking this approach, but our initial idea was
 ## References
 - [Detectron](https://github.com/facebookresearch/detectron). Ross Girshick, Ilija Radosavovic, Georgia Gkioxari, Piotr Dollár and Kaiming He. 2018.
 - [Learning to Segment Object Candidates](https://arxiv.org/abs/1506.06204). Pedro O. Pinheiro, Ronan Collobert, and Piotr Dollár. arXiv, 2015.
+- [Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks](https://arxiv.org/pdf/1506.01497v3.pdf). Shaoqing Ren, Kaiming He, Ross Girshick, and Jian Sun. arXiv, 2016.
 - [Mask R-CNN](https://arxiv.org/pdf/1703.06870.pdf). Kaiming He, Georgia Gkioxari, Piotr Dollár, Ross Girshick. arVix, 2018.
 
 ## People
