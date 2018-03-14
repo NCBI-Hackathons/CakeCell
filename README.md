@@ -122,8 +122,8 @@ So we thought, what if we make our cells look even <i> more </i> like oranges?
 We tried out one of the image transformations available in [Prisma](https://prismalabs.ai/about.html) to produce the image on the left, then segmented it with Detectron...
 
 <div align="center">
-  <img src="images/cells_orange_merge_Caribbean.jpg", width="400px">
-  <img src="images/results/cells_orange_merge_labeled.jpg", width="400px">
+  <img src="images/cells1_1_orange_Carribean.jpg", width="400px">
+  <img src="images/results/cells1_1_orange_Carribean_labeled.jpg", width="400px">
 </div>
 ## Validation
 Currently, we're learning what seems to work and what doesn't just by looking at the Detectron's analysis of our test images. Defining validation metrics will be important moving forward (e.g. annotated microscopy image sets).
