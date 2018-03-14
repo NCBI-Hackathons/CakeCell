@@ -22,8 +22,8 @@ nvidia-docker run -it -v /tmp/docker_mount:/mnt -v /shared_cache:/mnt2 detectron
     
     
 # copy output to permanent folder
-mkdir -p ${PWD}/results
-cp -r /tmp/docker_mount/detectron-visualizations/* ${PWD}/results
-
+#mkdir -p ${PWD}/results
+#cp -r /tmp/docker_mount/detectron-visualizations/* ${PWD}/results
+gsutil cp -r /tmp/docker_mount/detectron-visualizations gs://gems-drive/
 # get rid of mount folder
 rm -rf /tmp/docker_mount
