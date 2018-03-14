@@ -104,22 +104,34 @@ These stem cells are difficult...
   <img src="images/cells1_1_labeled.jpg", width="400px">
 </div>
 
-But interestingly, if we just change the lookup table for the colors, we can do much better!
+We thought, maybe we can make the cells look like fruit? After changing the lookup table for the image, we did much better:
 
 <div align="center">
   <img src="images/cells1_1_orange.jpg", width="400px">
   <img src="images/cells1_1_orange_labeled.jpg", width="400px">
 </div>
 
-There's still a lot of work to be done, but a couple of the cells get reasonably segmented, despite being labeled as clocks!
+Detectron does really well at segmenting individual (real) oranges:
 
+<div align="center">
+  <img src="images/try_to_run/oranges_fruit_only.jpg", width="400px">
+  <img src="images/results/thresh0-5/oranges_fruit_only_labeled.jpg", width="400px">
+</div>
+
+So we thought, what if we make our cells look even <i> more </i> like oranges?
+We tried out one of the image transformations available in [Prisma](https://prismalabs.ai/about.html) to produce the image on the left, then segmented it with Detectron...
+
+<div align="center">
+  <img src="images/cells_orange_merge_Caribbean.jpg", width="400px">
+  <img src="images/results/cells_orange_merge_labeled.jpg", width="400px">
+</div>
 ## Validation
 Currently, we're learning what seems to work and what doesn't just by looking at the Detectron's analysis of our test images. Defining validation metrics will be important moving forward (e.g. annotated microscopy image sets).
 
 ## Future
-1. Migrating to a Google server
-2. Exploring internal features of Detectron (rather than the final segmentation output) as alternatives for segmenting objects generically.
-3. "Tricking" Detectron into segmenting our objects by choosing appropriate color lookup tables.
+1. Exploring internal features of Detectron (rather than the final segmentation output) as alternatives for segmenting objects generically.
+2. "Tricking" Detectron into segmenting our objects by choosing appropriate color lookup tables.
+3. Building a training dataset in the COCO format containing cells, filaments, particles, etc from microscopy images.
 
 ## FAQ
 Q: I'm having trouble installing.

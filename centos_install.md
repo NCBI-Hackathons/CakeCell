@@ -14,6 +14,8 @@ _See also_ [install.sh](install.sh).
 
     ```bash
     wget -O nvidiadriver.rpm http://us.download.nvidia.com/tesla/390.30/nvidia-diag-driver-local-repo-rhel7-390.30-1.0-1.x86_64.rpm
+    yum clean all
+    yum install cuda-drivers
     ```
 5. Restart the system
 6. Set up CUDA 9.1
