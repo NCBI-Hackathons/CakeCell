@@ -1,5 +1,7 @@
-![Logo](images/logos/final_DNA.JPG)
-# CakeCell
+# CakeCell 
+<div>
+  <img src="images/logos/final_DNA.JPG", width="50px">
+</div>
 Segmenting cells (and other objects!) in microscopy images via neural networks.
 
 <b> Hackathon team: Jay Newby (Lead), Ben Walker (Sys Admin), Mike Pablo (Writer),  Sherry Chao, Ian Seim </b>
