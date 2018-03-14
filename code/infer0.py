@@ -51,6 +51,16 @@ import numpy as np
 import utils.keypoints as keypoint_utils
 import pycocotools.mask as mask_util
 
+from utils.colormap import colormap
+import utils.env as envu
+# Matplotlib requires certain adjustments in some environments
+# Must happen before importing matplotlib
+envu.set_up_matplotlib()
+import matplotlib.pyplot as plt
+from matplotlib.patches import Polygon
+
+
+
 c2_utils.import_detectron_ops()
 # OpenCL may be enabled by default in OpenCV3; disable it because it's not
 # thread safe and causes unwanted GPU memory allocations.
