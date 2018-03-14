@@ -1,3 +1,4 @@
+![Logo](images/logos/final_DNA.JPG)
 # CakeCell
 Segmenting cells (and other objects!) in microscopy images via neural networks.
 
