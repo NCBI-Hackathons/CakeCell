@@ -92,7 +92,7 @@ Person and dog are _labels_ within the COCO dataset used to train Detectron. As 
 
 Tardigrades are no problem:
 <div align="center">
-  <img src="images/web_images/Tardigrade false colour.jpg", width="400px">
+  <img src="images/Tardigrade false colour.jpg", width="400px">
   <img src="images/results/Tardigrade false colour.jpg-1.png", width="400px">
   </object>
 </div>
@@ -125,6 +125,7 @@ We tried out one of the image transformations available in [Prisma](https://pris
   <img src="images/cells1_1_orange_Carribean.jpg", width="400px">
   <img src="images/results/cells1_1_orange_Carribean_labeled.jpg", width="400px">
 </div>
+
 ## Validation
 Currently, we're learning what seems to work and what doesn't just by looking at the Detectron's analysis of our test images. Defining validation metrics will be important moving forward (e.g. annotated microscopy image sets).
 
