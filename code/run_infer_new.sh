@@ -8,7 +8,7 @@ mkdir -p ${PWD}/docker_mount
 mkdir -p ${PWD}/docker_mount/images
 
 # copy input file to mount
-cp ${imdir}/*.jpg /tmp/docker_mount/images/
+cp ${imdir}/*.jpg ${PWD}/docker_mount/images/
 
 inferscript=tools/infer_simple.py
 
