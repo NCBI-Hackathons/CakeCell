@@ -90,6 +90,12 @@ Person and dog are _labels_ within the COCO dataset used to train Detectron. As 
   <img src="images/guydog2_labeled.jpg", width="400px">
 </div>
 
+Tardigrades are no problem:
+<div align="center">
+  <img src="images/web_images/Tardigrade false colour.jpg", width="400px">
+  <img src="images/results/Tardigrade false colour.jpg.pdf", width="400px">
+</div>
+
 These stem cells are not within the COCO dataset, so we don't expect correct labeling, but we're hoping for accurate segmentation.
 
 <div align="center">
