@@ -97,11 +97,18 @@ Tardigrades are no problem:
   </object>
 </div>
 
-These stem cells are not within the COCO dataset, so we don't expect correct labeling, but we're hoping for accurate segmentation.
+These stem cells are difficult...
 
 <div align="center">
   <img src="images/cells1_1.png", width="400px">
   <img src="images/cells1_1_labeled.jpg", width="400px">
+</div>
+
+But interestingly, if we just change the lookup table for the colors, we can do much better!
+
+<div align="center">
+  <img src="images/cells1_1_orange.jpg", width="400px">
+  <img src="images/cells1_1_orange_labeled.jpg", width="400px">
 </div>
 
 There's still a lot of work to be done, but a couple of the cells get reasonably segmented, despite being labeled as clocks!
