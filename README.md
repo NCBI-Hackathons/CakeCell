@@ -126,6 +126,14 @@ We tried out one of the image transformations available in [Prisma](https://pris
   <img src="images/results/jpg_ver/cells1_1_orange_Carribean_labeled.jpg", width="400px">
 </div>
 
+For our filament images, no segmentation is predicted for the raw image (left), but after applying an image transformation in Prisma  (middle), we can get segments again (right):
+
+<div align="center">
+  <img src="images/filament_original.jpg", width="267px">
+  <img src="images/filament_rod.jpg", width="267px">
+  <img src="images/results/jpg_ver/filament_rod_labeled.jpg", width="267px">
+</div>
+
 ## Validation
 Currently, we're learning what seems to work and what doesn't just by looking at the Detectron's analysis of our test images. Defining validation metrics will be important moving forward (e.g. annotated microscopy image sets).
 
