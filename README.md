@@ -111,28 +111,28 @@ But interestingly, if we just change the lookup table for the colors, we can do 
   <img src="images/cells1_1_orange_labeled.jpg", width="400px">
 </div>
 
-There's still a lot of work to be done, but several of the cells get reasonably segmented, despite being labeled as oranges!
+There's still a lot of work to be done, but a couple of the cells get reasonably segmented, despite being labeled as clocks!
 
 ## Validation
-Currently, we're learning what seems to work and what doesn't just by looking at the Detectron's analysis of our test images. Of course, more robust validation metrics will be important moving forward (e.g. annotated microscopy image training sets).
+Currently, we're learning what seems to work and what doesn't just by looking at the Detectron's analysis of our test images. Defining validation metrics will be important moving forward (e.g. annotated microscopy image sets).
 
 ## Future
-1. Migrating to Google Cloud
+1. Migrating to a Google server
 2. Exploring internal features of Detectron (rather than the final segmentation output) as alternatives for segmenting objects generically.
 3. "Tricking" Detectron into segmenting our objects by choosing appropriate color lookup tables.
-4. Retraining the network with microscopy images.
 
 ## FAQ
 Q: I'm having trouble installing.
+
 A: Our experience in getting Detectron running is documented [here](centos_install.md), and much more detail is available at via [Detectron itself](https://github.com/facebookresearch/Detectron/blob/master/INSTALL.md).
 
 Q: Shouldn't you actually train your system to recognize cells instead?
+
 A: We're definitely excited about taking this approach, but our initial idea was to see whether Detectron would be able to identify cells without additional training, in the same way [DeepMask](https://arxiv.org/pdf/1506.06204.pdf) could identify monkeys without prior training. Having found this to not work on our first try, we're interested in seeing whether we can 'trick' Detectron into recognizing specific structures by pseudocoloring images (i.e. using a LUT).
 
 ## References
 - [Detectron](https://github.com/facebookresearch/detectron). Ross Girshick, Ilija Radosavovic, Georgia Gkioxari, Piotr Dollár and Kaiming He. 2018.
 - [Learning to Segment Object Candidates](https://arxiv.org/abs/1506.06204). Pedro O. Pinheiro, Ronan Collobert, and Piotr Dollár. arXiv, 2015.
-- [Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks](https://arxiv.org/pdf/1506.01497v3.pdf). Shaoqing Ren, Kaiming He, Ross Girshick, and Jian Sun. arXiv, 2016.
 - [Mask R-CNN](https://arxiv.org/pdf/1703.06870.pdf). Kaiming He, Georgia Gkioxari, Piotr Dollár, Ross Girshick. arVix, 2018.
 
 ## People
