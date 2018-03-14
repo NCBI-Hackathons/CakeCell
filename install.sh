@@ -28,7 +28,7 @@ then
         echo "Beginning driver installation"
         wget -O driver.rpm $TESLADRIVERLOC
         # check that this is correct
-        yum install -y driver.rpm
+        rpi -i driver.rpm
         yum clean all
         yum install -y cuda_drivers
         echo "Completed driver installation"
