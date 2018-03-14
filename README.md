@@ -3,11 +3,12 @@ A Neural Network Approach to Filament Classification
 
 <b> Hackathon team: Jay Newby (Lead), Ben Walker (Sys Admin), Mike Pablo (Writer),  Sherry Chao, Ian Seim </b>
 
-Identifying objects of interest in microscopy data is a critical task, but it is time-consuming and subject to variability over time and between researchers. We'd like to automatically segment microscopy images <i> generically </i>. Our two test image sets are of filaments and stem cells:
+Identifying objects of interest in microscopy data is a critical task, but it is time-consuming and subject to variability over time and between researchers. We'd like to automatically segment microscopy images <i> generically</i>. Our two test image sets are of filaments and stem cells:
 
 <div align="center">
   <img src="images/filaments.jpg", width="400px"> <n>
-  <img src="images/stemcells.jpg", width="400px">
+  <img src="images/stemcells.jp
+  g", width="400px">
 </div>
 
 To perform generic segmentation, we're using <a href="https://github.com/facebookresearch/Detectron">Detectron</a>, Facebook AI Research's "software system that implements state-of-the-art object detection algorithms", including Mask R-CNN. An early form of this approach, DeepMask, was able to segment even objects that were not originally in the training data set (Fig. 2 in [Learning to Segment Object Candidates](https://arxiv.org/abs/1506.06204)). In the same spirit, we want to see whether Detectron can segment biological objects without any microscopy training data.
@@ -35,10 +36,11 @@ A proposed future workflow is as follows:
 1. For any images with an oversized dimension, crop into a set of overlapping chunks.
 2. Submit images to Detectron to generate segmentation masks
 3. For any images composed of overlapping chunks, reassemble them.
-  - Combine segments if at least one pixel in the segment mask is shared between chunks.
+    - Combine segments if at least one pixel in the segment mask is shared between chunks.
 
 ## Installation
-Our installation of Detectron was as follows.
+_A brief installation process is as follows. For more help,_ [read more](centos_install.md).
+
 On a CentOS 7 with an NVIDIA GPU...
 1. Install latest NVIDIA driver.
 2. Install CUDA 9.1 on the system.
@@ -63,12 +65,12 @@ python2 tools/infer_simple.py
 ```
   - This will put the demo output in the docker_mount folder.
 
-### Installation notes
-
 ## Use cases
-Any image data where...
+We foresee our approach being useful for image data where...
 - manual segmentation is needed but problematic (time, difficulty, ...), and
 - there are not enough examples to train a classifier directly on the dataset
+
+Our focus is currently on serving the biological microscopy community, but segmenting objects within images without specifically training on those objects has even broader applications.
 
 ## Input format
 So far we have tested .jpg files. Other image formats TBD.
@@ -92,12 +94,19 @@ These stem cells are not within the COCO dataset, so we don't expect correct lab
 There's still a lot of work to be done, but a couple of the cells get labeled as clocks!
 
 ## Validation
+Currently, we're learning what seems to work and what doesn't just by looking at the Detectron's analysis of our test images. Of course, more robust validation metrics will be important moving forward (e.g. microscopy image sets with a pre-established ground truth).
 
 ## FAQ
+Q: I'm having trouble installing.
+A: Our experience in getting Detectron running is documented [here](centos_install.md), and much more detail is available at via [Detectron itself](https://github.com/facebookresearch/Detectron/blob/master/INSTALL.md).
+
+Q: Shouldn't you actually train your system to recognize cells instead?
+A: We're definitely excited about taking this approach, but our initial idea was to see whether Detectron would be able to identify cells without additional training, in the same way [DeepMask](https://arxiv.org/pdf/1506.06204.pdf) could identify monkeys without prior training. Having found this to not work on our first try, we're interested in seeing whether we can 'trick' Detectron into recognizing specific structures by pseudocoloring images (i.e. using a LUT).
 
 ## References
 - [Detectron](https://github.com/facebookresearch/detectron). Ross Girshick, Ilija Radosavovic, Georgia Gkioxari, Piotr Dollár and Kaiming He. 2018.
 - [Learning to Segment Object Candidates](https://arxiv.org/abs/1506.06204). Pedro O. Pinheiro, Ronan Collobert, and Piotr Dollár. arXiv, 2015.
+- [Mask R-CNN](https://arxiv.org/pdf/1703.06870.pdf). Kaiming He, Georgia Gkioxari, Piotr Dollár, Ross Girshick. arVix, 2018.
 
 ## People
 - [Jay Newby](http://newby.web.unc.edu/), UNC, Chapel Hill, NC, jaynewby@email.unc.edu

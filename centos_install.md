@@ -1,42 +1,44 @@
 # Installation checklist for a new system
 ### System requirements: CentOS 7, Nvidia GPU
 
+_See also_ [install.sh](install.sh).
+
 0. Root access
 1. Possible `yum update`
-1. Create /cakecell/ folder for everything
-2. Clone detectron repo at https://github.com/facebookresearch/Detectron.git
-3. Install latest driver
+2. Create /cakecell/ folder for everything
+3. Clone detectron repo at https://github.com/facebookresearch/Detectron.git
+4. Install latest driver
 
     ```bash
     wget -O nvidiadriver.rpm http://us.download.nvidia.com/tesla/390.30/nvidia-diag-driver-local-repo-rhel7-390.30-1.0-1.x86_64.rpm
     ```
-3. Restart the system
-3. Set up CUDA 9.1
+5. Restart the system
+6. Set up CUDA 9.1
     ```bash
     wget -O cuda_install.rpm http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-repo-rhel7-9.1.85-1.x86_64.rpm
     rpm -i cuda_install.rpm
     yum clean all
     yum install cuda
     ```
-4. Install docker-ce
+7. Install docker-ce
     ```bash
     yum install -y docker-ce-17.12.1.ce
     ```
 
-5. Install nvidia-docker
+8. Install nvidia-docker
     ```bash
     yum install -y nvidia-docker2-2.0.3-1.docker17.12.1.ce
     ```
 
 
-7. Build detectron docker file
+9. Build detectron docker file
     ```bash
     docker build -t detectron .
     ```
-    
-    
-6. `systemctl start docker`
-8. Test on images
+
+
+10. `systemctl start docker`
+11. Test on images
 
     ```bash
     mkdir docker_mount
