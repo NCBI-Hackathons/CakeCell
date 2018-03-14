@@ -90,11 +90,25 @@ Person and dog are _labels_ within the COCO dataset used to train Detectron. As 
   <img src="images/guydog2_labeled.jpg", width="400px">
 </div>
 
-These stem cells are not within the COCO dataset, so we don't expect correct labeling, but we're hoping for accurate segmentation.
+Tardigrades are no problem:
+<div align="center">
+  <img src="images/web_images/Tardigrade false colour.jpg", width="400px">
+  <img src="images/results/Tardigrade false colour.jpg-1.png", width="400px">
+  </object>
+</div>
+
+These stem cells are difficult...
 
 <div align="center">
   <img src="images/cells1_1.png", width="400px">
   <img src="images/cells1_1_labeled.jpg", width="400px">
+</div>
+
+But interestingly, if we just change the lookup table for the colors, we can do much better!
+
+<div align="center">
+  <img src="images/cells1_1_orange.jpg", width="400px">
+  <img src="images/cells1_1_orange_labeled.jpg", width="400px">
 </div>
 
 There's still a lot of work to be done, but a couple of the cells get reasonably segmented, despite being labeled as clocks!
