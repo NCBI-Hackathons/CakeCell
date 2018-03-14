@@ -111,7 +111,7 @@ But interestingly, if we just change the lookup table for the colors, we can do 
   <img src="images/cells1_1_orange_labeled.jpg", width="400px">
 </div>
 
-There's still a lot of work to be done, but a couple of the cells get reasonably segmented, despite being labeled as clocks!
+There's still a lot of work to be done, but several of the cells get reasonably segmented, despite being labeled as oranges!
 
 ## Validation
 Currently, we're learning what seems to work and what doesn't just by looking at the Detectron's analysis of our test images. Of course, more robust validation metrics will be important moving forward (e.g. annotated microscopy image sets).
