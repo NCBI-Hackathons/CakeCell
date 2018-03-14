@@ -14,7 +14,6 @@ then
         mkdir /install
         cd /install
 
-        # do we need to update anything?
         yum update -y
         yum install -y git
         yum install -y wget

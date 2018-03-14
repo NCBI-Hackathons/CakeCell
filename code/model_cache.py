@@ -3,7 +3,7 @@
 
 import argparse
 import sqlite3
-import wget
+#import wget
 import subprocess
 
 def create_db():
