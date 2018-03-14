@@ -7,8 +7,10 @@ import sqlite3
 import subprocess
 import glob
 
+dbpath = "/cakecell/code/models.db"
+
 def create_db():
-    conn = sqlite3.connect("models.db")
+    conn = sqlite3.connect(dbpath)
     db = conn.cursor()
     db.execute("CREATE TABLE models (name varchar(100), yaml_url varchar(255), pkl_url varchar(255), cached boolean);")
     
@@ -16,7 +18,7 @@ def create_db():
     conn.close()
 
 def add_model(name,yaml_url,pkl_url):
-    conn = sqlite3.connect("models.db")
+    conn = sqlite3.connect(dbpath)
     db = conn.cursor()
     db.execute("INSERT INTO models VALUES (?,?,?,?)",(name,yaml_url,pkl_url,False))
     
@@ -24,7 +26,7 @@ def add_model(name,yaml_url,pkl_url):
     conn.close()
     
 def read_urls(name):
-    conn = sqlite3.connect("models.db")
+    conn = sqlite3.connect(dbpath)
     db = conn.cursor()
     db.execute("SELECT * FROM models WHERE name=?",(name,))
     row = db.fetchone()
@@ -48,7 +50,7 @@ def load_to_cache(name):
     #subprocess.call("wget -O /shared_cache/"+name+".yaml "+yaml_url,shell=True)
     subprocess.call("wget -O /shared_cache/"+name+".pkl "+pkl_url,shell=True)
     
-    conn = sqlite3.connect("models.db")
+    conn = sqlite3.connect(dbpath)
     db = conn.cursor()
     db.execute("UPDATE models SET cached=? WHERE name=?",(True,name))
     conn.commit()
@@ -63,7 +65,7 @@ def return_local_path(name):
     return ("/shared_cache/"+name+".pkl")
     
 def is_valid(name):
-    conn = sqlite3.connect("models.db")
+    conn = sqlite3.connect(dbpath)
     db = conn.cursor()
     db.execute("SELECT COUNT(*) FROM models WHERE name=?",(name,))
     (result,)=db.fetchone()
