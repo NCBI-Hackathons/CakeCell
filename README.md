@@ -1,6 +1,6 @@
 # CakeCell 
 <div>
-  <img src="images/logos/final_DNA.JPG", width="100px">
+  <img src="images/logos/final_DNA.JPG", width="200px">
 </div>
 Segmenting cells (and other objects!) in microscopy images via neural networks.
 
