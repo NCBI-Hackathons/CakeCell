@@ -70,9 +70,9 @@ systemctl start docker
 
 
 # Need to reboot the system for driver changes to take effect
-read -p "Reboot now? " -n 1 -r
-echo    # (optional) move to a new line
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-    reboot
-fi
+# read -p "Reboot now? " -n 1 -r
+# echo    # (optional) move to a new line
+# if [[ $REPLY =~ ^[Yy]$ ]]
+# then
+#     reboot
+# fi
