@@ -1,6 +1,3 @@
-# root access
-sudo su -
-
 # Configuration variables
 CUDALOC="http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-repo-rhel7-9.1.85-1.x86_64.rpm"
 TESLADRIVERLOC="http://us.download.nvidia.com/tesla/390.30/nvidia-diag-driver-local-repo-rhel7-390.30-1.0-1.x86_64.rpm"
