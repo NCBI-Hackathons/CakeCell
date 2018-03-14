@@ -129,6 +129,27 @@ def convert_from_cls_format(cls_boxes, cls_segms, cls_keyps):
     return boxes, segms, keyps, classes
 
 
+def kp_connections(keypoints):
+    kp_lines = [
+        [keypoints.index('left_eye'), keypoints.index('right_eye')],
+        [keypoints.index('left_eye'), keypoints.index('nose')],
+        [keypoints.index('right_eye'), keypoints.index('nose')],
+        [keypoints.index('right_eye'), keypoints.index('right_ear')],
+        [keypoints.index('left_eye'), keypoints.index('left_ear')],
+        [keypoints.index('right_shoulder'), keypoints.index('right_elbow')],
+        [keypoints.index('right_elbow'), keypoints.index('right_wrist')],
+        [keypoints.index('left_shoulder'), keypoints.index('left_elbow')],
+        [keypoints.index('left_elbow'), keypoints.index('left_wrist')],
+        [keypoints.index('right_hip'), keypoints.index('right_knee')],
+        [keypoints.index('right_knee'), keypoints.index('right_ankle')],
+        [keypoints.index('left_hip'), keypoints.index('left_knee')],
+        [keypoints.index('left_knee'), keypoints.index('left_ankle')],
+        [keypoints.index('right_shoulder'), keypoints.index('left_shoulder')],
+        [keypoints.index('right_hip'), keypoints.index('left_hip')],
+    ]
+    return kp_lines
+
+
 
 def vis_one_image_area(
         im, im_name, output_dir, boxes, segms=None, keypoints=None, thresh=0.9,
