@@ -1,8 +1,9 @@
-# CakeCell 
+# CakeCell
 <div>
   <img src="images/logos/final_DNA.JPG", width="200px">
 </div>
 Segmenting cells (and other objects!) in microscopy images via neural networks.
+
 
 <b> Hackathon team: Jay Newby (Lead), Ben Walker (Sys Admin), Mike Pablo (Writer),  Sherry Chao, Ian Seim </b>
 
@@ -10,7 +11,7 @@ Segmenting cells (and other objects!) in microscopy images via neural networks.
 Identifying objects of interest in microscopy data is a critical task, but it is time-consuming and subject to variability over time and between researchers. We'd like to automatically segment microscopy images <i> generically</i>.
 
 ## Why CakeCell?
-One of our earliest attempts at segmenting microscopy images <i> without training on microscopy images with labeled cells </i> produced some cell-like segmentations (a couple of cells were labeled as clocks), and some hilariously bad segmentations (much of the field of view was labeled as a [cake](images/cells2_1.jpg.pdf)!).
+One of our earliest attempts at segmenting microscopy images <i> without training on microscopy images with labeled cells </i> produced some cell-like segmentations (a couple of cells were labeled as clocks), and some hilariously bad segmentations (much of the field of view was labeled as a [cake](images/results/jpg_ver/first_cake_example_labeled.jpg)!).
 
 ## Design and testing
 Our two test image sets are of filaments and stem cells:
